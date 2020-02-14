@@ -68,4 +68,19 @@ router.delete('/:id', (req, res) => {
 
 });
 
+// get project actions by project id
+router.get('/:id/actions', (req, res) => {
+
+    const { id } = req.params;
+
+    Projects.getProjectActions(id)
+        .then(actions => {
+            res.status(200).json(actions);
+        })
+        .catch(err => {
+            res.status(500).json({ error: "Something went wrong." });
+        })
+
+});
+
 module.exports = router;
