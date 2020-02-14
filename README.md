@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+I learned how to write custom middleware to accomplish things like validation for incoming requests, or logging information to the console. I also learned how to separate out my routes into more logical routers to keep the server organized and efficient.
+
 - [ ] Describe Middleware?
+
+Middleware is ran between the requests that are sent to the server. Before the server processes those requests, we can use middleware to do things like validate the requests.
 
 - [ ] Describe a Resource?
 
+A resource is a piece of data, like a JSON object, on the server that is manipulated using the endpoints to manage the resource(s).
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+The API can send back a response, whether success or fail, with the proper status code to help clients know if the request was successful.
+
 - [ ] How can we partition our application into sub-applications?
+
+We can partition our application into sub-applications by using routers.
 
 ## Minimum Viable Product
 

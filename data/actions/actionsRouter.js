@@ -1,5 +1,6 @@
 const express = require('express');
 
+const Projects = require('../helpers/projectModel.js');
 const Actions = require('../helpers/actionModel.js');
 
 const router = express.Router();
@@ -24,7 +25,7 @@ router.get('/:id', (req, res) => {
 });
 
 // post to create new action
-router.post('/:id/new', (req, res) => {
+router.post('/:id/new', validateProjectId, (req, res) => {
 
     console.log(`REQUEST BODY: `, req.body);
     const { id } = req.params;
@@ -69,5 +70,21 @@ router.delete('/:id', (req, res) => {
             res.status(500).json({ error: "Something went wrong." });
         })
 });
+
+
+// our custom middleware for validation
+function validateProjectId(req, res, next) {
+
+    const { id } = req.params;
+    Projects.get(id)
+        .then(project => {
+            if (!project) {
+                res.status(400).json({ error: "We could not create an action for that project." });
+            }
+            else {
+                next();
+            }
+        })
+}
 
 module.exports = router;
