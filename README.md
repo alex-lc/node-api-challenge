@@ -56,7 +56,7 @@ The API can send back a response, whether success or fail, with the proper statu
 
 - [ ] How can we partition our application into sub-applications?
 
-We can partition our application into sub-applications by using routers.
+We can partition our application into sub-applications by using routers. This allows us to break our routes into a more organized fashion.
 
 ## Minimum Viable Product
 
